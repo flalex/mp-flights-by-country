@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flights by Country</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Flights by Country</h2>
+        <form id="airportForm">
+            <div class="form-group">
+                <label for="airportCode">Enter Airport Code (3 characters):</label>
+                <input type="text" id="airportCode" name="airportCode" maxlength="3" required>
+            </div>
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+    </div>
+
+    <p id="errorMessage" class="hidden">Error: Unable to fetch data. Please check the airport code and try again.</p>
+
+    <div class="table-container">
+        <table id="resultsTable" class="hidden">
+            <thead>
+                <tr>
+                    <th>Country</th>
+                    <th># of Flights</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div id="loading-spinner" class="spinner" style="display: none;"></div>
+    <script src="script.js"></script>
+</body>
+</html>
