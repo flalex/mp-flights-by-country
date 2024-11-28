@@ -1,4 +1,4 @@
-const API_KEY = '67486213c3046da4eda9c23a';
+const API_KEY = '6748ad46aa6c43a48c435c51';
 const NETWORK_TIMEOUT = 30000;
 const VALID_AIRPORT_CODE_LENGTH = 3;
 
@@ -107,11 +107,23 @@ class FlightDataProcessor {
 class UIHandler {
   static startLoading() {
       document.getElementById('loading-spinner').style.display = 'block';
+      UIHandler.disableForm();
       UIHandler.showError(null);
   }
 
   static stopLoading() {
       document.getElementById('loading-spinner').style.display = 'none';
+      UIHandler.enableForm();
+  }
+
+  static disableForm() {
+    const formElements = document.querySelectorAll('#airportForm input, #airportForm button');
+    formElements.forEach(element => element.disabled = true);
+  }  
+
+  static enableForm() {
+    const formElements = document.querySelectorAll('#airportForm input, #airportForm button');
+    formElements.forEach(element => element.disabled = false);
   }
 
   static displayResults(data) {
